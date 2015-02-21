@@ -46,4 +46,35 @@ describe('basic test', function () {
       done();
     });
   });
+  it('graphs', function (done) {
+    pipe.graph(key, '1y', function (err, results) {
+      assert.ifError(err);
+      var expected = [ { time: 31564800000,
+        count: 12,
+        sum: 58.138,
+        avg: 4.844833333333333,
+        max: 5.429,
+        min: 3.537,
+        open: 4.367,
+        close: 4.446 },
+      { time: 63072000000,
+        count: 12,
+        sum: 66.762,
+        avg: 5.5635,
+        max: 6.67,
+        min: 3.681,
+        open: 5.072,
+        close: 5.52 },
+      { time: 94608000000,
+        count: 3,
+        sum: 20.941000000000003,
+        avg: 6.980333333333334,
+        max: 7.134,
+        min: 6.71,
+        open: 6.71,
+        close: 7.097 } ];
+      assert.deepEqual(results, expected);
+      done();
+    });
+  });
 });
