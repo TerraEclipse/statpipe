@@ -1,0 +1,33 @@
+{
+  "name": "statpipe",
+  "version": "0.0.0",
+  "description": "record timeseries data in redis and aggregate/graph the results",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "author": "Carlos Rodriguez <carlos@s8f.org> (http://s8f.org/)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/carlos8f/statpipe.git"
+  },
+  "homepage": "https://github.com/carlos8f/statpipe",
+  "keywords": [
+    "time",
+    "series",
+    "redis",
+    "data",
+    "aggregation",
+    "graphing",
+    "statistics",
+    "analytics"
+  ],
+  "bugs": {
+    "url": "https://github.com/carlos8f/statpipe/issues"
+  }
+}
