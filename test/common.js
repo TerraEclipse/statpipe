@@ -1,3 +1,4 @@
 assert = require('assert');
-
-util = require('util');
+async = require('async');
+idgen = require('idgen');
+statpipe = require('../');
