@@ -109,6 +109,22 @@ module.exports = function (options) {
           cb(null, results);
         }
       });
+    },
+    count: function (k, options, cb) {
+      if (typeof options === 'function') {
+        cb = options;
+        options = {};
+      }
+      options || (options = {});
+      options.start || (options.start = '-inf');
+      options.end || (options.end = '+inf');
+      if (options.start instanceof Date) options.start = options.start.getTime();
+      if (options.end instanceof Date) options.end = options.end.getTime();
+
+      client.zcount(k, options.start, options.end, function (err, count) {
+        if (err) return cb(err);
+        cb(null, Number(count));
+      });
     }
   };
 };

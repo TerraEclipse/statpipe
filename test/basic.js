@@ -77,4 +77,11 @@ describe('basic test', function () {
       done();
     });
   });
+  it('counts', function (done) {
+    pipe.count(key, {start: 68284800000, end: 97401600000}, function (err, count) {
+      assert.ifError(err);
+      assert.equal(count, 12);
+      done();
+    });
+  });
 });
