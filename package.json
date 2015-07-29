@@ -1,6 +1,6 @@
 {
   "name": "statpipe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "record timeseries data in redis and aggregate/graph the results",
   "main": "index.js",
   "scripts": {
