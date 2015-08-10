@@ -104,8 +104,10 @@ module.exports = function (options) {
         });
         if (getNext) getNext();
         else {
-          delete currentResult.bucket;
-          results.push(currentResult);
+          if (currentResult) {
+            delete currentResult.bucket;
+            results.push(currentResult);
+          }
           cb(null, results);
         }
       });
