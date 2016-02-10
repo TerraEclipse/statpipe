@@ -112,7 +112,7 @@ module.exports = function (options) {
         }
       });
     },
-    count: function (k, options, cb) {
+    count: function (key, options, cb) {
       if (typeof options === 'function') {
         cb = options;
         options = {};
@@ -123,9 +123,24 @@ module.exports = function (options) {
       if (options.start instanceof Date) options.start = options.start.getTime();
       if (options.end instanceof Date) options.end = options.end.getTime();
 
-      client.zcount(k, options.start, options.end, function (err, count) {
+      client.zcount(key, options.start, options.end, function (err, count) {
         if (err) return cb(err);
         cb(null, Number(count));
+      });
+    },
+    sum: function (key, options, cb) {
+      if (typeof options === 'function') {
+        cb = options;
+        options = {};
+      }
+      var sum = 0;
+      this.play(key, options, function (err, chunk, getNext) {
+        if (err) return cb(err);
+        chunk.forEach(function (item) {
+          if (typeof item.value === 'number') sum += item.value;
+        });
+        if (getNext) getNext();
+        else cb(null, sum);
       });
     }
   };

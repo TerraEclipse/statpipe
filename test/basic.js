@@ -84,4 +84,11 @@ describe('basic test', function () {
       done();
     });
   });
+  it('sums', function (done) {
+    pipe.sum(key, function (err, sum) {
+      assert.ifError(err);
+      assert.equal(sum, 145.84100000000004);
+      done();
+    });
+  });
 });
